@@ -1,8 +1,15 @@
 <?php
 
 /**
+ * Section Init = do_action('pxr_ctlg_section_action')
+ * CTLG single article = get_template_part('/post-contents/article', 'catalogue')
+ * 
+ * $args for AJAX Sorter/AJAX Loadmore = pxr_ctlg_args()
+ * 
+ */
+
+/**
  * CTLG args
- *
  */
 if (!function_exists('pxr_ctlg_args')) {
    function pxr_ctlg_args()
@@ -18,10 +25,10 @@ if (!function_exists('pxr_ctlg_args')) {
       }
 
       $args = array(
-         'post_type'     => 'catalogue',
-         'post_status'     => 'publish',
+         'post_type'      => 'catalogue',
+         'post_status'    => 'publish',
          'posts_per_page' => '1',
-         'paged'         => $pxr_page,
+         'paged'          => $pxr_page,
          'tax_query' => array(
             array(
                'taxonomy' => 'catalogue-category',
@@ -36,16 +43,12 @@ if (!function_exists('pxr_ctlg_args')) {
 }
 
 
-
 /**
  * CTLG body
- *
  */
 if (!function_exists('pxr_ctlg_body')) {
    function pxr_ctlg_body($pxr_loop, $maxpage)
-   {
-?>
-
+   { ?>
       <div data-termid="0" class="pxr-ctlg-section__articles" data-maxpage="<?php echo esc_attr($maxpage, 'pxrcode'); ?>">
 
          <?php if ($pxr_loop->have_posts()) : while ($pxr_loop->have_posts()) : $pxr_loop->the_post(); ?>
@@ -66,10 +69,8 @@ if (!function_exists('pxr_ctlg_body')) {
 }
 
 
-
 /**
  * CTLG Section
- *
  */
 if (!function_exists('pxr_ctlg_section')) {
    function pxr_ctlg_section()
@@ -78,11 +79,21 @@ if (!function_exists('pxr_ctlg_section')) {
       do_action('pxr_load_more_scripts');
       do_action('pxr_sorter_scripts');
 
+      $pxr_terms   = get_terms('catalogue-category');
+      $pxr_all_ids = wp_list_pluck($pxr_terms, 'term_id');
+
       $args = array(
          'post_type'      => 'catalogue',
          'post_status'    => 'publish',
          'posts_per_page' => '1',
          'taxonomy'       => 'catalogue-category',
+         'tax_query' => array(
+            array(
+               'taxonomy' => 'catalogue-category',
+               'field'    => 'term_id',
+               'terms'    => $pxr_all_ids
+            )
+         )
       );
 
       $pxr_loop = new \WP_Query($args);

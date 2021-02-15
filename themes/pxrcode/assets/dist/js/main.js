@@ -2593,7 +2593,9 @@ __webpack_require__.r(__webpack_exports__);
  // Custom JS Models
 
 
- // Main JS
+ // import '@models/sorter-ctlg'
+// import '@models/loadmore-ctlg'
+// Main JS
 
 
 

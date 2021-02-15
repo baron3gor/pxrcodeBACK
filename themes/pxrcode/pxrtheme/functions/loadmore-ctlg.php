@@ -1,8 +1,7 @@
 <?php
 
 /**
- * Javascript for Load More
- *
+ * JS CDATA Load More
  */
 
 if (!function_exists('pxr_load_more_js')) {
@@ -15,24 +14,15 @@ if (!function_exists('pxr_load_more_js')) {
          'button_text' => esc_html__('Load More', 'pxrcode'),
       );
 
-      wp_enqueue_script(
-         'pxr-load-more',
-         get_stylesheet_directory_uri() . '/js/libs/load-more-btn.js',
-         array('jquery'),
-         '1.0',
-         true
-      );
-      wp_localize_script('pxr-load-more', 'pxrloadmore', $args);
+      wp_localize_script('pxr-main', 'pxrloadmore', $args);
    }
 
    add_action('pxr_load_more_scripts', 'pxr_load_more_js');
 }
 
 
-
 /**
- * AJAX Load More
- *
+ * AJAX for Load More
  */
 if (!function_exists('pxr_ajax_load_more')) {
    function pxr_ajax_load_more()

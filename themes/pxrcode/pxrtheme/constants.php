@@ -43,5 +43,5 @@ require_once(PXRTHEME_PATH . '/functions/ctlg.php');
 require_once(PXRTHEME_PATH . '/functions/general.php');
 require_once(PXRTHEME_PATH . '/functions/custom-fnc.php');
 require_once(PXRTHEME_PATH . '/functions/class-tgm-plugin-activation.php');
-require_once(PXRTHEME_PATH . '/functions/load-more-btn.php');
-require_once(PXRTHEME_PATH . '/functions/sorter.php');
+require_once(PXRTHEME_PATH . '/functions/loadmore-ctlg.php');
+require_once(PXRTHEME_PATH . '/functions/sorter-ctlg.php');
