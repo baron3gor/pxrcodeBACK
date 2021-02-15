@@ -1,0 +1,21 @@
+@font-face {
+   font-family: 'notosans';
+   src: url('../../fonts/notosans/notosans.woff2') format('woff2');
+   src: url('../../fonts/notosans/notosans.woff') format('woff'), url('../../fonts/notosans/notosans.eot') format('embedded-opentype'), url('../../fonts/notosans/notosans.ttf') format('truetype');
+   font-weight: 400;
+   font-display: swap;
+   font-style: normal;
+}
+
+/********************************************************************************
+ * pxr ICON FONT
+ ********************************************************************************/
+@font-face {
+   font-family: 'pxriconfont';
+   src: url('../../fonts/pxriconfont/pxriconfont.eot');
+   src: url('../../fonts/pxriconfont/pxriconfont.eot') format('embedded-opentype'), url('../../fonts/pxriconfont/pxriconfont.woff') format('woff'), url('../../fonts/pxriconfont/pxriconfont.ttf') format('truetype'), url('../../fonts/pxriconfont/pxriconfont.svg') format('svg');
+   font-weight: normal;
+   font-style: normal;
+   font-display: swap;
+}
+@import './iconfonts/pxriconfont'; //import

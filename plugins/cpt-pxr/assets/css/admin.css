@@ -1,0 +1,32 @@
+/*/*
+/*-------------------------------------------------------------------------------------------
+ 	Admin Styling
+  -------------------------------------------------------------------------------------------*/
+  .edit-post-meta-boxes-area #poststuff .stuffbox>h3, .edit-post-meta-boxes-area #poststuff h2.hndle, .edit-post-meta-boxes-area #poststuff h3.hndle{
+  	font-size: 20px;
+  }
+
+.interface-interface-skeleton__content {
+	margin-bottom: 24px;
+}
+
+.cf:before,
+.cf:after {
+ content:"";
+ display:table;
+}
+.cf:after {
+ clear:both;
+}
+.clear {
+ clear:both;
+}
+
+.pxr-theme-options.cmb2-options-page .cmb-type-title h3.cmb2-metabox-title {
+	font-size: 17px;
+}
+
+.pxr-theme-options.cmb2-options-page .cmb2-wrap .cmb-type-title {
+	padding: 1.4em 1em;
+	margin-top: 2.7em;
+}
