@@ -36,7 +36,6 @@ if (!function_exists('pxr_after_setup_theme')) {
 }
 
 
-
 /**
  * Add custom image size wrapper
  */
@@ -45,4 +44,17 @@ if (!function_exists('pxr_add_image_size')) {
    {
       add_image_size($config['name'], $config['width'], $config['height'], $config['crop']);
    }
+}
+
+
+/**
+ * Remove recentcomments inline style
+ */
+if (!function_exists('pxr_remove_recentcomments')) {
+   function pxr_remove_recentcomments()
+   {
+      global $wp_widget_factory;
+      remove_action('wp_head', array($wp_widget_factory->widgets['WP_Widget_Recent_Comments'], 'recent_comments_style'));
+   }
+   add_action('widgets_init', 'pxr_remove_recentcomments');
 }
