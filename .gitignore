@@ -1,0 +1,16 @@
+# Ignore everything:
+/*
+/*/*
+
+# Ignore idea settings:
+/.idea
+
+!.gitignore
+
+# cpt-pxr
+!/plugins
+!/plugins/cpt-pxr/
+
+# pxrtheme
+!/themes
+!/themes/pxrcode/

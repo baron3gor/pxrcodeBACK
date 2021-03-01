@@ -102,4 +102,7 @@ function pxr_wp_html_compression_start()
 {
    ob_start('pxr_wp_html_compression_finish');
 }
-// add_action('get_header', 'pxr_wp_html_compression_start');
+
+if (isset(get_option('pxr_performance_options')['pxr_hmtl_minify']) && get_option('pxr_performance_options')['pxr_hmtl_minify'] == 'on') {
+   add_action('get_header', 'pxr_wp_html_compression_start');
+}

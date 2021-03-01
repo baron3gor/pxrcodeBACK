@@ -29,14 +29,14 @@ if (!function_exists('pxr_enqueue_scripts')) {
    function pxr_enqueue_scripts()
    {
       // add html5 for old browsers.
-      wp_register_script('html5-shim', 'http://html5shim.googlecode.com/svn/trunk/html5.js', array('jquery'), PXR_THEME_VERSION, false);
+      wp_register_script('html5-shiv', 'https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js', array('jquery'), PXR_THEME_VERSION, false);
 
       //Custom JS Code
       wp_register_script('pxr-vendor', PXR_THEME_URL . '/assets/dist/js/vendor.js', array('jquery'), PXR_THEME_VERSION, true);
       wp_register_script('pxr-main', PXR_THEME_URL . '/assets/dist/js/main.js', array('jquery'), PXR_THEME_VERSION, true);
 
-      wp_enqueue_script('html5-shim');
-      wp_script_add_data('html5-shim', 'conditional', 'lt IE 9');
+      wp_enqueue_script('html5-shiv');
+      wp_script_add_data('html5-shiv', 'conditional', 'lt IE 9');
 
       //Load vendor + main    
       wp_enqueue_script('pxr-vendor');

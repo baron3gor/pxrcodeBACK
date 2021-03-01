@@ -38,14 +38,12 @@ if (!function_exists('pxr_font_loader_filter')) {
 /**
  * ADD Defer to js
  */
-if (!function_exists('pxr_add_defer_attribute')) {
+if (!function_exists('pxr_add_defer_attribute') && !empty(get_option('pxr_performance_options')['pxr_defer_scripts'])) {
    function pxr_add_defer_attribute($tag, $handle)
    {
-      $handles = array(
-         'pxr-main',
-         'pxr-vendor',
-      );
-
+      $list = get_option('pxr_performance_options')['pxr_defer_script'];
+      $list = str_replace(" ", "", $list);
+      $handles  = preg_split('/\r\n|\r|\n/', $list);
       foreach ($handles as $defer_script) {
          if ($defer_script === $handle) {
             return str_replace(' src', ' defer="defer" src', $tag);

@@ -212,7 +212,7 @@ if (!function_exists("pxr_register_main_options_metabox")) {
          'desc'             => 'Enable/Disable',
          'id'               => $pxr . 'embed_show',
          'type'             => 'select',
-         'default'          => 'disable',
+         'default'          => 'enable',
          'options'          => array(
             'enable'  => __('Enable', 'cpt-pxr'),
             'disable' => __('Disable', 'cpt-pxr'),
@@ -236,7 +236,7 @@ if (!function_exists("pxr_register_main_options_metabox")) {
          'desc'             => 'Enable/Disable',
          'id'               => $pxr . 'rssxml_show',
          'type'             => 'select',
-         'default'          => 'disable',
+         'default'          => 'enable',
          'options'          => array(
             'enable'  => __('Enable', 'cpt-pxr'),
             'disable' => __('Disable', 'cpt-pxr'),
@@ -253,6 +253,38 @@ if (!function_exists("pxr_register_main_options_metabox")) {
             'enable'  => __('Enable', 'cpt-pxr'),
             'disable' => __('Disable', 'cpt-pxr'),
          ),
+      ));
+
+      // HTML optimization
+      $pxr_performance->add_field(array(
+         'name' => __('HTML Options', 'cpt-pxr'),
+         'type' => 'title',
+         'id'   =>  $pxr . 'hmtl_minify_title'
+      ));
+
+      $pxr_performance->add_field(array(
+         'name'             => 'Optimize HTML Code',
+         'desc'             => 'On/Off',
+         'id'               => $pxr . 'hmtl_minify',
+         'type'             => 'checkbox',
+      ));
+
+      // JS Options
+      $pxr_performance->add_field(array(
+         'name' => __('Javascript Options', 'cpt-pxr'),
+         'type' => 'title',
+         'id'   =>  $pxr . 'js_performance'
+      ));
+
+      $pxr_performance->add_field(array(
+         'name'       => __('Scripts to Defer:', 'cpt-pxr'),
+         'id'         => $pxr . 'defer_scripts',
+         'desc'       => __('List any handle/id of scripts which you would like to apply the \'defer\' attribute to. (new handle on a new line)', 'cpt-pxr'),
+         'type'       => 'textarea',
+         'attributes'    => array(
+            'placeholder' => ('pxr-vendor
+pxr-main')
+         )
       ));
    }
    add_action('cmb2_admin_init', 'pxr_register_main_options_metabox');
@@ -271,7 +303,6 @@ if (!function_exists("pxr_options_display_with_tabs")) {
             <h2><?php echo wp_kses_post(get_admin_page_title()); ?></h2>
          <?php endif; ?>
          <h2 class="nav-tab-wrapper">
-
             <?php foreach ($tabs as $option_key => $tab_title) : ?>
                <a class="nav-tab<?php if (isset($_GET['page']) && $option_key === $_GET['page']) : ?> nav-tab-active<?php endif; ?>" href="<?php menu_page_url($option_key); ?>"><?php echo wp_kses_post($tab_title); ?></a>
             <?php endforeach; ?>
